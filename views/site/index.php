@@ -32,8 +32,10 @@ $form = ActiveForm::begin([
 ?>
 
     <?= $form->field($model,'surname')->textInput(['autofocus'=>true])->label('Фамилия') ?>
-
-    <?= $form->field($model,'birth')->textInput()->label('Дата рождения')?>
+    
+    <?= $form->field($model, 'birth', [
+        'inputOptions' => ['autofocus' => 'autofocus', 'class' => 'form-control transparent']
+    ])->textInput()->input('birth', ['placeholder' => "xx-xx-xxxx"])->label('Дата рождения'); ?>
 
     <?= $form->field($model, 'phone')->textInput(); ?>
 

@@ -26,6 +26,7 @@ class Form extends Model
             [['surname','birth','phone','car'],'required'],
             ['surname', 'match', 'pattern' => '^[А-Я](\S-|\S)\w*$'],
             ['email', 'match', 'pattern' => '\w*\w*\.\w*'],
+            ['birth', 'match', 'pattern' => '/^(\d{1,2})\-(\d{1,2})(?:\-(\d{4}))?$/'],
         ];
     }
 }
