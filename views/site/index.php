@@ -31,7 +31,7 @@ $form = ActiveForm::begin([
 ]);
 ?>
 
-    <?= $form->field($model,'surname')->textInput(['autofocus'=>true])->label('Surname') ?>
+    <?= $form->field($model,'surname')->textInput(['autofocus'=>true]) ?>
 
     <?= $form->field($model, 'birth')->widget(\yii\widgets\MaskedInput::className(),
         ['mask' => '9999-99-99', 'options' => ['placeholder' => '2000-10-10']]);?>
