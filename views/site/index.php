@@ -1,3 +1,4 @@
+
 <div class="form-content">
     
 <?php
@@ -24,7 +25,6 @@ use yii\helpers\Html;
         </div>
     <?php endif;?>
 
-
 <?php
 $form = ActiveForm::begin([
     'class'=>'form-horizontal',
@@ -32,14 +32,19 @@ $form = ActiveForm::begin([
 ?>
 
     <?= $form->field($model,'surname')->textInput(['autofocus'=>true])->label('Фамилия') ?>
-    
-    <?= $form->field($model, 'birth', [
-        'inputOptions' => ['autofocus' => 'autofocus', 'class' => 'form-control transparent']
-    ])->textInput()->input('birth', ['placeholder' => "xx-xx-xxxx"])->label('Дата рождения'); ?>
+
+<!--    --><?//= $form->field($model, 'birth', [
+//        'inputOptions' => ['autofocus' => 'autofocus', 'class' => 'form-control transparent']
+//    ])->textInput()->input('birth', ['placeholder' => "10-10-2000", ])->label('Дата рождения'); ?>
+
+    <?= $form->field($model, 'birth')->widget(\yii\widgets\MaskedInput::className(),
+        ['mask' => '9999-99-99', 'options' => ['placeholder' => '2000-10-10']]);?>
 
     <?= $form->field($model, 'phone')->textInput(); ?>
 
-    <?= $form->field($model,'email')->textInput()?>
+    <?= $form->field($model, 'email', [
+        'inputOptions' => ['autofocus' => 'autofocus', 'class' => 'form-control transparent']
+    ])->textInput()->input('email', ['placeholder' => "box@mail.ru", ])->label('Email'); ?>
 
 <!--    --><?//= $form->field($model,'car')->textInput()?>
 
